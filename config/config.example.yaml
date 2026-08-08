@@ -1,0 +1,42 @@
+# ===================== Path Configuration =====================
+input_path: 
+output_path: 
+log_path: 
+report_dir: 
+progress_path: 
+# ===================== Model Configuration =====================
+# 1. LLM for sentence generation(API)
+sentence_gen_models:
+  - name: "deepseek"
+    api_key: "YOUR_API_KEY"
+    api_base: "https://api.deepseek.com/v1/chat/completions"
+    model_id: "deepseek-chat"
+  # api_base: "https://api.openai.com/v1/chat/completions"
+
+# 2. LLM for evaluation
+eval_report_models:
+  default: "deepseek"    # default eval/report model
+  models:
+    - name: "deepseek"
+      api_key: "YOUR_API_KEY"
+      api_base: "https://api.deepseek.com/v1/chat/completions"
+      model_id: "deepseek-chat"
+    # api_base: "https://api.qwen.com/v1/chat/completions"
+
+# 3. Local model for metric evaluation
+metric_model:
+  use: false    # metric evaluation
+  name: "qwen3-8B"
+  path: "/path/to/qwen3-8B"    # local model path
+
+# =========================================
+evaluation_strategy:
+  quality_eval_type: "agent"    # options: agent, metric, both
+  original_sentence_eval: true    # evaluate original sentence quality
+  # quality_eval_type"both", and(true)
+  both_include_in_overall: true    # true=compute both overall scores; false=agent score only
+
+# ===================== Runtime Configuration =====================
+max_retries: 3    # API retry count
+log_level: "INFO"
+batch_size: 10    # batch size
