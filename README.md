@@ -30,24 +30,13 @@ TCCBench/
 │   │   ├── run_glm.py                 # GLM-4.7
 │   │   ├── run_glm_thinking.py        # GLM-4.7 (thinking mode)
 │   │   └── run_qwen.py               # Qwen3-max
-│   ├── postprocessing/
-│   │   └── split_response.py          # Tokenize model responses for scoring
 │   ├── evaluation/                    # CQF evaluation protocol
 │   │   ├── run_evaluation.py          # 3-agent evaluation pipeline
 │   │   ├── compliance_evaluator.py    # Multiset-matching compliance (F1)
 │   │   └── score_fusion.py            # Fuse compliance × quality × factuality
-│   ├── analysis/                      # Result analysis and visualization
-│   │   ├── compute_statistics.py      # Recompute all metrics from raw eval
-│   │   ├── generate_figures.py        # Generate paper figures
-│   │   └── extract_case_studies.py    # Extract representative case studies
-│   └── rebuttal_experiments/          # Additional robustness analyses
-│       ├── threshold_sensitivity.py   # Factuality-gate threshold sweep
-│       ├── soft_vs_hard_constraint.py # Soft vs. hard compliance comparison
-│       └── additional_experiments.py  # Metric-design sensitivity, etc.
 ├── config/
 │   └── config.example.yaml            # Example configuration (no real keys)
-├── requirements.txt
-└── README.md
+
 ```
 
 ## Dataset Format
